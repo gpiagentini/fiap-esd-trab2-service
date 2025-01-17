@@ -1,7 +1,6 @@
-# Desafio Técnico | Backend | Ideal CTVM
+# FIAP ESD Service
 
-This is a technical challenge for the backend position at Ideal CTVM. The challenge was completed according to the following [documentation](https://github.com/idealctvm-public/backend-challenge-mid-level).
-
+Projeto destinado a entrega do Trabalho 2 de Engineering Software Development.
 
 ## Overview do Projeto
 
@@ -86,8 +85,8 @@ This will start the necessary applications for the project to run.
 To use all the available actions in the API, its necessary to authenticate using the **/login** endpoint.
 This challenge contains one user for authentication:
 
- - Login: service-user-1
- - Password: id34lCTVM
+ - Login: test-user
+ - Password: F1AP
 
 Once logged, the generated token must be used in every request, inside the **Authorization** header.
 ```
@@ -98,22 +97,3 @@ Authorization: Bearer <token>
 
 With the project running, you can check for the endpoints documentation in http://localhost/swagger-ui/index.html.
 It should display the Swagger Documentation for the Rest Endpoints.
-
-![image](https://github.com/user-attachments/assets/6367eb0c-86ad-4a25-9cde-42b2af921587)
-
-## Next Steps
-
-For this challenge, some features are mocked and limited, for example the available asset list.
-Here are some next steps:
-
- - Add real list of available assets in stock markets;
- - Add asset as a FK in **user_list**;
- - Add a user column in **user_list**, to allow more than one user list management.
-
-## Contacts and Feedback
-I would appreciate a lot for any feedback that would help me improve my skills!
-Any questions, observations or problems, please contact me:
-
- - gmtpiagentini@gmail.com
- - [linkedin](https://www.linkedin.com/in/gpiagentini/)
- - https://gpiagentini.github.io/CV

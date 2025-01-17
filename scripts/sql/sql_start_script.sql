@@ -516,7 +516,7 @@ CREATE TABLE public."users" (
 	CONSTRAINT user_unique UNIQUE (login)
 );
 
--- id34lCTVM
-INSERT INTO public.users (login, password) VALUES ('service-user-1', '$2a$12$R7lfJg.ERBKZshi4yXVYj.DN8vENh09acyBMOHt1gP5/QUlT8IRyq')
+-- F1AP
+INSERT INTO public.users (login, password) VALUES ('test-user', '$2a$12$Hltz1jvdV5Pf8Vxa.OchLuBYkqKodBthm5kptdwqIdxdhWZVF/I8O')
 
 
