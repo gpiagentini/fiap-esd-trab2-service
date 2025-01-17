@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../sql/sql_start_script.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: ../..
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "80:80"
+    environment:
+      DB_HOST: postgres
+      SPRING_PROFILES_ACTIVE: prod
+      YAHOO_FINANCE_API_KEY: cE6RYiToYea03hYoAvKpw8QfCgXlo4iI1jK2EYDL
+      API_AUTH_SECRET: challenge-secret
