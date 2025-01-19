@@ -48,12 +48,14 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Build with Maven
+        run: mvn clean install
+
       - name: Build Docker image
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/esd-service:latest .
           docker tag ${{ secrets.DOCKER_USERNAME }}/esd-service:latest ${{ secrets.DOCKER_USERNAME }}/esd-service:${{ github.sha }}
 
-      # Step 4: Push Docker image
       - name: Push Docker image
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/esd-service:latest
