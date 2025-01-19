@@ -34,10 +34,7 @@ jobs:
 
   docker: # Atualizar versão da imagem no Docker hub
     runs-on: ubuntu-latest
-
     needs: test
-
-
 
     steps:
       # Checkout the code
@@ -63,10 +60,10 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/esd-service:latest .
-          docker tag ${{ secrets.DOCKER_USERNAME }}/esd-service:latest ${{ secrets.DOCKER_USERNAME }}/esd-service:${{ github.sha }}
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/fiap-esd-trab2-service:latest .
+          docker tag ${{ secrets.DOCKER_USERNAME }}/fiap-esd-trab2-service:latest ${{ secrets.DOCKER_USERNAME }}/fiap-esd-trab2-service:${{ github.sha }}
 
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/esd-service:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/esd-service:${{ github.sha }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/fiap-esd-trab2-service:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/fiap-esd-trab2-service:${{ github.sha }}
