@@ -47,7 +47,7 @@ public class AssetControllerTest {
         var mockResponseJson = objectMapper.writeValueAsString(mockResponse);
         when(assetAppService.getPrices(assets)).thenReturn(mockResponse);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/asset/price/" + assets)
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/assets/price/" + assets)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().json(mockResponseJson));
@@ -60,7 +60,7 @@ public class AssetControllerTest {
         when(assetAppService.getPrices(assets)).thenThrow(new FinancialApiNotFoundException("Asset price not found in Financial Api."));
 
         // Assert
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/asset/price/" + assets)
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/assets/price/" + assets)
                         .contentType(MediaType.TEXT_PLAIN_VALUE))
                 .andExpect(status().isNotFound())
                 .andExpect(content().string("Asset price not found in Financial Api."));
